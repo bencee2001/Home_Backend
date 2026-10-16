@@ -1,0 +1,20 @@
+server.port: 8080
+
+solon.app:
+  name: home-backend
+
+solon.logging.logger:
+  "root":
+    level: INFO
+
+# API docs UI at /doc.html
+knife4j:
+  enable: true
+  setting:
+    language: en-US
+
+app.db:
+  jdbcUrl: "${DB_URL:jdbc:postgresql://localhost:5432/home}"
+  username: "${DB_USER:home}"
+  password: "${DB_PASSWORD:home}"
+  driverClassName: "org.postgresql.Driver"
