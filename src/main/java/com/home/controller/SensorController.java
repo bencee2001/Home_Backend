@@ -14,8 +14,6 @@ import org.noear.solon.annotation.Mapping;
 import org.noear.solon.annotation.Post;
 import org.noear.solon.core.handle.Context;
 
-import java.sql.SQLException;
-
 @Tag(name = "Sensors")
 @Controller
 @Mapping("/sensors")
@@ -27,7 +25,7 @@ public class SensorController {
     @Operation(summary = "Register a sensor", description = "Body: {\"id\":1,\"name\":\"living room\"}; name may be null")
     @Post
     @Mapping
-    public Object create(@Body SensorRequest req, Context ctx) throws SQLException {
+    public Object create(@Body SensorRequest req, Context ctx) {
         if (req == null || req.id() == null) {
             ctx.status(400);
             return new ErrorResponse("id is required");
